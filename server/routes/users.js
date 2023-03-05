@@ -11,14 +11,17 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage })
 
 //Register POST route
-router.post('/register',
+router.post('/users/register',
   //Set requirements for POST body
   body("username").isLength({ min: 3 }).escape(),
   body("email").isEmail().trim().escape(),
   body("password").isLength({ min: 5 }),
   async (req, res, next) => {
     const errors = validationResult(req);
-    if (!errors.isEmpty()) {
+    console.log(errors)
+    if (req.body.username < 3 || req.body.password < 5) {
+      return res.status(400).send(false)
+    } else if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
     const username = req.body.username;
@@ -44,7 +47,7 @@ router.post('/register',
               }
             )
             newUser.save().then(() => {
-              return res.json({ message: "Register success" })
+              return res.send(true)
             }).catch((err) => {
               console.log(err)
             })
@@ -58,7 +61,7 @@ router.post('/register',
 
 
 //Login POST route
-router.post('/login',
+router.post('/users/login',
   upload.none(),
   async (req, res, next) => {
     await User.findOne({ username: req.body.username }).then((user) => {

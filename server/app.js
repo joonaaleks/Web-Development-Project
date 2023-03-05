@@ -37,8 +37,8 @@ app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }))
 
 //Use routes
 app.use('/', indexRouter);
-app.use('/api/users', usersRouter);
-app.use('/api/posts', postsRouter);
+app.use('/api', usersRouter);
+app.use('/api', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

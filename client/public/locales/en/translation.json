@@ -1,0 +1,15 @@
+{
+    "Welcome to my project work!": "Welcome to my project work!",
+    "Home": "Home",
+    "Posts": "Posts",
+    "Login": "Login",
+    "Register": "Register",
+    "Posted": "Posted:",
+    "commented": "commented:",
+    "Comment": "Comment",
+    "Close": "Close",
+    "Submit New Post Here": "Submit New Post Here",
+    "POST": "POST",
+    "Alert": "Username should be at least 3 characters long and password 5 characters long!",
+    "Success": "Register success"
+}

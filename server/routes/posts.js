@@ -5,7 +5,7 @@ const User = require("../models/User");
 const Comment = require("../models/Comment")
 
 //Get posts from the database
-router.get("/list", async (req, res, next) => {
+router.get("/posts/list", async (req, res, next) => {
     await Post.find({}).then((posts) => {
         //If posts are not found, respond with an error
         if (!posts) {
@@ -18,7 +18,7 @@ router.get("/list", async (req, res, next) => {
 });
 
 //POST route for posting posts
-router.post("/post", async (req, res, next) => {
+router.post("/posts/post", async (req, res, next) => {
     await User.findOne({ _id: req.body.userID }).then((user) => {
         //If user is found, then create new post for the user and save it into the database
         if (user) {
@@ -39,7 +39,7 @@ router.post("/post", async (req, res, next) => {
 });
 
 //GET route for comments
-router.get("/commentsList", async (req, res, next) => {
+router.get("/posts/commentsList", async (req, res, next) => {
     //Find comments in the database
     await Comment.find({}).then((comment) => {
         if (!comment) {
@@ -51,7 +51,7 @@ router.get("/commentsList", async (req, res, next) => {
 })
 
 //POST route for comments
-router.post("/comments", async (req, res, next) => {
+router.post("/posts/comments", async (req, res, next) => {
     //Find user based on the user ID on the comment body
     await User.findOne({ _id: req.body.userID }).then((name) => {
         //Create new comment

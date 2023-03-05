@@ -10,13 +10,11 @@
     "dev:server": "cd server && npm run dev",
     "client": "cd client && npm start",
     "server": "cd server && npm start",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "start": "concurrently \"cd server && npm start\" \"cd client && npm start\""
   },
   "author": "Joona Pellinen",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.2.3",
-    "concurrently": "^7.6.0",
-    "react-bootstrap": "^2.7.2"
+    "concurrently": "^7.6.0"
   }
 }

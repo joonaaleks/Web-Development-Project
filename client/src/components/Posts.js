@@ -5,9 +5,10 @@ import Card from "react-bootstrap/Card"
 import { useState, useEffect } from 'react';
 import { InputGroup, Modal, Col, Row } from 'react-bootstrap';
 import "./styles.css"
+import { useTranslation } from "react-i18next";
 
 export default function Posts(jwt, user) {
-    console.log(jwt.user.id)
+    const { t } = useTranslation();
 
     const [submitPost, setSubmitPostData] = useState({})
     const [post, setPostData] = useState([])
@@ -117,7 +118,7 @@ export default function Posts(jwt, user) {
                             <Form.Group className="mb-4">
                                 <Card className="cr" style={{ marginTop: "2rem" }}>
                                     <Card.Body>
-                                        <Form.Label><p style={{ fontSize: "40px" }}>{post.author} Posted:</p></Form.Label>
+                                        <Form.Label><p style={{ fontSize: "40px" }}>{post.author} {t("Posted")}</p></Form.Label>
                                         <Col>{post.post}</Col>
                                     </Card.Body>
                                 </Card>
@@ -132,7 +133,7 @@ export default function Posts(jwt, user) {
                     <Modal.Body>
                         <Row md={1} xs={1} lg={1}>
                             {foundComment.map((comment) => (
-                                comment.id === postID ? (<Container key={comment._id} style={{ display: "flex", justifyContent: "center" }}><Card style={{ marginTop: "1rem", minHeight: "6rem", textAlign: "center", width: "60%" }}>{comment.author} commented:<Card.Body>{comment.comment}</Card.Body></Card></Container>) : null
+                                comment.id === postID ? (<Container key={comment._id} style={{ display: "flex", justifyContent: "center" }}><Card style={{ marginTop: "1rem", minHeight: "6rem", textAlign: "center", width: "60%" }}>{comment.author} {t("commented")}<Card.Body>{comment.comment}</Card.Body></Card></Container>) : null
                             ))}
                         </Row>
                     </Modal.Body>
@@ -142,13 +143,13 @@ export default function Posts(jwt, user) {
                                 <Form.Group>
                                     {jwt.jwt ? (
                                         <InputGroup>
-                                            <Form.Control type="comment" name="comment" id={postID} placeholder="Write a comment"></Form.Control>
-                                            <Button type='submit' id="commentBTN">Comment</Button>
+                                            <Form.Control type="comment" name="comment" id={postID} placeholder={t("Write a comment")}></Form.Control>
+                                            <Button type='submit' id="commentBTN">{t("Comment")}</Button>
                                         </InputGroup>
                                     ) : (
                                         <InputGroup>
-                                            <Form.Control disabled type="comment" name="comment" id={postID} placeholder="You must login to comment"></Form.Control>
-                                            <Button disabled type='submit' id="commentBTN">Comment</Button>
+                                            <Form.Control disabled type="comment" name="comment" id={postID} placeholder={t("You must login to comment")}></Form.Control>
+                                            <Button disabled type='submit' id="commentBTN">{t("Comment")}</Button>
                                         </InputGroup>
                                     )}
                                 </Form.Group>
@@ -156,23 +157,23 @@ export default function Posts(jwt, user) {
                         </Modal.Footer>
                     </Form>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        {t("Close")}
                     </Button>
                 </Modal>
             </Container>
             <Container style={{ marginBottom: "4rem" }}>
-                <h1>Submit New Post Here!</h1>
+                <h1>{t("Submit New Post Here!")}</h1>
                 <Form onSubmit={submitPostFunction} onChange={handleChangePost}>
                     <Form.Group>
                         {jwt.jwt ? (
                             <InputGroup>
-                                <Form.Control type="post" name="post" placeholder="Submit a code snippet!"></Form.Control>
-                                <Button type="submit" id="postBTN">POST</Button>
+                                <Form.Control type="post" name="post" placeholder={t("Submit a code snippet!")}></Form.Control>
+                                <Button type="submit" id="postBTN">{t("POST")}</Button>
                             </InputGroup>
                         ) : (
                             <InputGroup>
-                                <Form.Control disabled type="post" name="post" placeholder="You must login to post"></Form.Control>
-                                <Button disabled type="submit" id="postBTN">POST</Button>
+                                <Form.Control disabled type="post" name="post" placeholder={t("You must login to post")}></Form.Control>
+                                <Button disabled type="submit" id="postBTN">{t("POST")}</Button>
                             </InputGroup>
                         )}
                     </Form.Group>
