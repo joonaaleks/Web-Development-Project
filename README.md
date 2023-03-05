@@ -8,15 +8,22 @@ Open the folder in which the code is located on a code editor, for example Visua
 
 After the terminal command line is in the root folder, install concurrently with command:
 
+
 npm install concurrently
 
+
 Your dependencies in root folders package.json should look like this
+
 
  ![image](https://user-images.githubusercontent.com/72103929/222969956-058d0f39-661a-4983-92b0-30eccea67c0c.png)
 
 
 
+
+
+
 Then go to “server” folder in your code editors terminal and install following dependencies with npm:
+
 
 npm install bcryptjs
 
@@ -44,15 +51,21 @@ npm install multer
 
 npm install nodemon
 
+
 Your dependencies in server folders package.json should look something like this with nodemon added
 
 ![image](https://user-images.githubusercontent.com/72103929/222970058-4ff45e7d-9d83-4568-a0e3-f5070cc0b9da.png)
 
  
 
+
+
+
+
 After you have installed necessary dependencies in the “server” folder, go back to the root folder and then go to “client” folder in your terminals command line. 
 
 Then install following dependencies in the “client” folder with npm:
+
 
 npm i @testing-library/jest-dom
 
@@ -83,10 +96,14 @@ npm install react-i18next i18next –save
 npm install i18next-http-backend i18next-browser-languagedetector --save
 
 
+
 Your dependencies in client folders package.json should look like this
 
 ![image](https://user-images.githubusercontent.com/72103929/222970093-fffb77bc-84fc-41eb-b9df-fa35648e62f1.png)
 
+![image](https://user-images.githubusercontent.com/72103929/222970140-ee492659-fa31-4947-9815-fa1622b647da.png)
+
+ 
  
  
 Before starting the application, you should also make connection to a MongoDB database with this connection string:
