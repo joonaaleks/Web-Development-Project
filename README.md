@@ -1,19 +1,23 @@
 Installation guidelines
 
 Welcome to the installation guidelines for this project!
+
 First get the source code from this project folder and copy it to your own computer in a folder of your choosing:
 
 Open the folder in which the code is located on a code editor, for example Visual Studio Code and go to the root folder “project” on your code editors terminal. 
+
 After the terminal command line is in the root folder, install concurrently with command:
+
 npm install concurrently
+
 Your dependencies in root folders package.json should look like this
 
  ![image](https://user-images.githubusercontent.com/72103929/222969956-058d0f39-661a-4983-92b0-30eccea67c0c.png)
 
 
 Then go to “server” folder in your code editors terminal and install following dependencies with npm:
-npm install bcryptjs;
-npm install cookie-parser;
+npm install bcryptjs
+npm install cookie-parser
 npm install cors
 npm install debug
 npm install dotenv
