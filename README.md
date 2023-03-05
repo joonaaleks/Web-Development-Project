@@ -12,8 +12,8 @@ Your dependencies in root folders package.json should look like this
 
 
 Then go to “server” folder in your code editors terminal and install following dependencies with npm:
-npm install bcryptjs
-npm install cookie-parser
+npm install bcryptjs;
+npm install cookie-parser;
 npm install cors
 npm install debug
 npm install dotenv
