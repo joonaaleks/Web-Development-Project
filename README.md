@@ -38,4 +38,4 @@ npm start
 
 
 
-NOTE: Whole documentation can be found on the word document in the folder
+NOTE: Full documentation can be found on the word document in the folder
