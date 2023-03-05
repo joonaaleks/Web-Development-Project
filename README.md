@@ -35,3 +35,7 @@ mongodb://127.0.0.1:27017/project
 After installing necessary dependencies and connecting to the database, you should be able to run following command in the root folder to start the application:
 
 npm start
+
+
+
+NOTE: Whole documentation can be found on the word document in the folder
