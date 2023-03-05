@@ -10,6 +10,7 @@ export default function Register() {
 
     const [userData, setUserData] = useState({})
 
+    //When form is submitted, POST user registeration data
     const submit = (e) => {
         e.preventDefault()
         console.log(userData)
@@ -25,8 +26,10 @@ export default function Register() {
             .then(response => response.json())
             .then(data => {
                 if (data === false) {
+                    //If registeration failed, alert the user with an error
                     alert(t("Alert"))
                 } else if (data === true) {
+                    //If registeration was success update user hook
                     alert(t("Success"))
                     setUserData(data)
                 } else {
@@ -35,6 +38,7 @@ export default function Register() {
             })
     }
 
+    //On change of text field value, update hook with the data
     const handleChange = (e) => {
         setUserData({ ...userData, [e.target.name]: e.target.value })
     }
@@ -45,6 +49,7 @@ export default function Register() {
                 <Card style={{ width: "30rem" }}>
                     <h1>{t("Register")}</h1>
                     <Card.Body>
+                        {/*Registeration form, which contains input fields for user data*/}
                         <Form onSubmit={submit} onChange={handleChange} >
 
                             <Form.Group className='mb-4' controlId='Name'>

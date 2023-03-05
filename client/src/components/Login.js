@@ -23,18 +23,22 @@ export default function Login({ setJwt, jwt, user, setUser }) {
             .then(response => response.json())
             .then((data) => {
                 if (data.token) {
+                    //Jwt token is set true, if the token is successfully created for the user
                     setJwt(true)
+                    //Set user data from jwt token into a hook
                     setUser(JSON.parse(Buffer.from(data.token.split(".")[1], "base64").toString()))
                 }
             })
     }
 
+    //Value change handler of input field
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value })
     }
 
     return (
         <div>
+            {/*Login card which contains form for submitting login data*/}
             <Container style={{ display: "flex", justifyContent: "center", width: "60%", margin: "0 auto" }}>
                 <Card style={{ width: "30rem" }}>
                     <h1>{t("Login")}</h1>

@@ -10,6 +10,17 @@
     "Close": "Close",
     "Submit New Post Here": "Submit New Post Here",
     "POST": "POST",
+    "Name": "Name",
+    "Email address": "Email address",
+    "Password": "Password",
+    "You must login to post": "You must login to post",
+    "Submit a code snippet!": "Submit a code snippet!",
+    "Write a comment": "Write a comment",
+    "You must login to comment": "You must login to comment",
+    "Enter Username": "Enter Username",
+    "Enter Password": "Enter Password",
+    "Enter Email": "Enter Email",
+    "Login Success": "Login Success",
     "Alert": "Username should be at least 3 characters long and password 5 characters long!",
     "Success": "Register success"
 }

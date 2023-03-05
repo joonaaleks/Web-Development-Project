@@ -5,10 +5,12 @@ import { useTranslation } from "react-i18next";
 import Button from 'react-bootstrap/Button';
 
 export default function NavBar() {
+    //Changing languages functions
     const { t, i18n } = useTranslation();
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang)
     }
+    //Returning navigation bar
     return (
         <Navbar className="bg-white shadow-sm mb-3">
             <Container fluid>

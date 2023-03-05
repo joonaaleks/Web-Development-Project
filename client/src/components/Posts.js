@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Posts(jwt, user) {
     const { t } = useTranslation();
-
+    //Setting hooks
     const [submitPost, setSubmitPostData] = useState({})
     const [post, setPostData] = useState([])
     const [comment, setCommentData] = useState({})
@@ -25,7 +25,7 @@ export default function Posts(jwt, user) {
     };
     const handleClose = () => setShow(false);
 
-    //Fetching posts
+    //Fetching posts route
     useEffect(() => {
         const value = setInterval(() => {
             fetch("/api/posts/list")
@@ -37,7 +37,7 @@ export default function Posts(jwt, user) {
         return () => clearInterval(value)
     }, [])
 
-    //Fetching comments
+    //Fetching comments route
     useEffect(() => {
         const value = setInterval(() => {
             fetch("/api/posts/commentsList")
@@ -51,7 +51,7 @@ export default function Posts(jwt, user) {
         return () => clearInterval(value);
     }, [])
 
-    //Posting posts
+    //Posting posts route
     const submitPostFunction = (e) => {
         e.preventDefault()
         console.log(submitPost)
@@ -74,7 +74,7 @@ export default function Posts(jwt, user) {
             })
     }
 
-    //Posting comments
+    //Posting comments route
     const submitComments = (e) => {
         e.preventDefault()
         console.log("ID:", id)
@@ -99,6 +99,7 @@ export default function Posts(jwt, user) {
             })
     }
 
+    //Change of input value handlers
     const handleChangeComment = (e) => {
         setCommentData({ ...comment, [e.target.name]: e.target.value })
         setIdData({ id: e.target.id })
@@ -112,6 +113,7 @@ export default function Posts(jwt, user) {
     return (
         <>
             <Container>
+                {/*Map posts to the post page*/}
                 {post.map((post) => (
                     <div key={post._id}>
                         <Form onClick={() => handleShow(post._id)}>
@@ -126,17 +128,20 @@ export default function Posts(jwt, user) {
                         </Form>
                     </div>
                 ))}
+                {/*Modal, which opens a window on the site when a post is clicked and shows comments to the user*/}
                 <Modal size="xl" show={show} onHide={handleClose} animation={false}>
                     <Modal.Header>
                         <Modal.Title>{postID.id}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <Row md={1} xs={1} lg={1}>
+                            {/*Maps comments to the modal*/}
                             {foundComment.map((comment) => (
                                 comment.id === postID ? (<Container key={comment._id} style={{ display: "flex", justifyContent: "center" }}><Card style={{ marginTop: "1rem", minHeight: "6rem", textAlign: "center", width: "60%" }}>{comment.author} {t("commented")}<Card.Body>{comment.comment}</Card.Body></Card></Container>) : null
                             ))}
                         </Row>
                     </Modal.Body>
+                    {/*Form for commenting*/}
                     <Form onSubmit={submitComments} onChange={handleChangeComment}>
                         <Modal.Footer>
                             <Container fluid="md">
@@ -161,6 +166,7 @@ export default function Posts(jwt, user) {
                     </Button>
                 </Modal>
             </Container>
+            {/*Posting new posts function*/}
             <Container style={{ marginBottom: "4rem" }}>
                 <h1>{t("Submit New Post Here!")}</h1>
                 <Form onSubmit={submitPostFunction} onChange={handleChangePost}>
