@@ -2,6 +2,10 @@ Installation guidelines
 
 Welcome to the installation guidelines for this project!
 
+
+NOTE! THIS PROJECT WAS DONE WITH NODE VERSION 18.12.1
+
+
 First get the source code from this project folder and copy it to your own computer in a folder of your choosing:
 
 Open the folder in which the code is located on a code editor, for example Visual Studio Code and go to the root folder “project” on your code editors terminal. 
