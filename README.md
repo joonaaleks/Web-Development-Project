@@ -7,6 +7,7 @@ Open the folder in which the code is located on a code editor, for example Visua
 After the terminal command line is in the root folder, install concurrently with command:
 npm install concurrently
 Your dependencies in root folders package.json should look like this
+
  ![image](https://user-images.githubusercontent.com/72103929/222969956-058d0f39-661a-4983-92b0-30eccea67c0c.png)
 
 
