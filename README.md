@@ -1,3 +1,5 @@
+This project is a simple app, in which the user can register and login as well as make posts to a post forum.
+
 Installation guidelines
 
 Welcome to the installation guidelines for this project!
