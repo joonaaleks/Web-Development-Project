@@ -10,8 +10,10 @@ const styles = {
         height: "60vh",
     },
     image: {
-        width: "600px",
-        height: "400px",
+        width: "40%",
+        height: "auto",
+        maxWidth: "400px",
+        maxHeight: "400px",
         objectFit: "cover",
         borderRadius: "10px",
     }
