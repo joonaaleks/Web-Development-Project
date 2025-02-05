@@ -15,6 +15,10 @@
   "author": "Joona Pellinen",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^7.6.0"
+    "concurrently": "^7.6.0",
+    "express": "^4.21.2",
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.9.7",
+    "mysql2": "^3.12.0"
   }
 }

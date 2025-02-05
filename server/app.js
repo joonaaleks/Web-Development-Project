@@ -1,19 +1,20 @@
 require('dotenv').config();
 
-let createError = require('http-errors');
-let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
-let mongoose = require("mongoose")
-let cors = require('cors')
+const createError = require('http-errors');
+const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const cors = require('cors');
 
 //Define routes
-let indexRouter = require('./routes/index');
-let usersRouter = require('./routes/users');
-let postsRouter = require("./routes/posts");
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const postsRouter = require("./routes/posts");
 
-let app = express();
+const app = express();
 
 //Make connection to the database
 async function database() {
@@ -23,7 +24,6 @@ async function database() {
     const db = mongoose.connection;
     db.on("error", console.error.bind(console, "MongoDB connection error"));
 }
-
 //Start database
 database().catch(err => console.log(err));
 
@@ -33,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }))
+app.use(cors({ origin: `http://127.0.0.1:3000`, optionsSuccessStatus: 200 }))
 
 //Use routes
 app.use('/', indexRouter);
@@ -53,6 +53,11 @@ app.use(function (err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
+});
+
+
+app.listen(5000, () => {
+    console.log(`Server running on http://127.0.0.1:5000`);
 });
 
 module.exports = app;

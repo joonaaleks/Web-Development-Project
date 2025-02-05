@@ -16,10 +16,11 @@ router.post('/users/register',
   body("username").isLength({ min: 3 }).escape(),
   body("email").isEmail().trim().escape(),
   body("password").isLength({ min: 5 }),
+
   async (req, res, next) => {
     const errors = validationResult(req);
     console.log(errors)
-    if (req.body.username < 3 || req.body.password < 5) {
+    if (req.body.username.length < 3 || req.body.password.length < 5) {
       return res.status(400).send(false)
     } else if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
